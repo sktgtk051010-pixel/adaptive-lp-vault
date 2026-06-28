@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content
+  ="width=device-width, initial-scale=1.0" />
+  <title>Adaptive LP Vault Demo</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main>
+    <h1>Adaptive LP Vault Demo</h1>
+    <p>Connect your wallet to a local Anvil fork and interact with the deployed vault.</p >
+
+    <section class="card">
+      <h2>Wallet</h2>
+      <button id="connectButton">Connect Wallet</button>
+      <div class="field"><strong>Account:</strong> <span id="account">Not connected</span></div>
+      <div class="field"><strong>Chain:</strong> <span id="chain">Unknown</span></div>
+      <div class="field"><strong>Status:</strong> <span id="status">Waiting</span></div>
+      <p class="help">If you are using a remote container or Codespace, make sure MetaMask can reach the container RPC port. The local browser and container localhost are not the same machine.</p >
+    </section>
+
+    <section class="card">
+      <h2>Vault Setup</h2>
+      <label for="vaultAddress">Vault Address</label>
+      <input id="vaultAddress" placeholder="0x..." />
+      <button id="loadVaultButton">Load Vault</button>
+      <div class="field"><strong>Vault Name:</strong> <span id="vaultName">-</span></div>
+      <div class="field"><strong>Vault Symbol:</strong> <span id="vaultSymbol">-</span></div>
+      <div class="field"><strong>Token0:</strong> <span id="token0Address">-</span></div>
+      <div class="field"><strong>Token1:</strong> <span id="token1Address">-</span></div>
+      <div class="field"><strong>Share Balance:</strong> <span id="shareBalance">-</span></div>
+      <div class="field"><strong>Total Supply:</strong> <span id="totalSupply">-</span></div>
+    </section>
+
+    <section class="card">
+      <h2>Deposit</h2>
+      <div class="grid">
+        <label>Amount Token0</label>
+        <input id="depositAmount0" placeholder="e.g. 1.0" />
+        <label>Amount Token1</label>
+        <input id="depositAmount1" placeholder="e.g. 0.01" />
+      </div>
+      <button id="approveButton">Approve Tokens</button>
+      <button id="depositButton">Deposit</button>
+      <p class="help">For a fresh vault, any initial amounts work. Later deposits may require the correct token ratio.</p >
+    </section>
+
+    <section class="card">
+      <h2>Withdraw</h2>
+      <div class="grid">
+        <label>Shares to withdraw</label>
+        <input id="withdrawShares" placeholder="e.g. 1.0" />
+      </div>
+      <button id="withdrawButton">Withdraw</button>
+    </section>
+
+    <section class="card">
+      <h2>Balances</h2>
+      <div class="field"><strong>Token0 Balance:</strong> <span id="token0Balance">-</span></div>
+      <div class="field"><strong>Token1 Balance:</strong> <span id="token1Balance">-</span></div>
+      <button id="refreshButton">Refresh Balances</button>
+    </section>
+
+    <section class="card log-card">
+      <h2>Log</h2>
+      <pre id="log">Ready.</pre>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/ethers@6.9.0/dist/ethers.umd.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
